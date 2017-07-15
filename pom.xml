@@ -90,7 +90,7 @@
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
-				</configuration>
+		        </configuration>
 			</plugin>
 			<!-- These plugins are needed for doing releases -->
 			<plugin>
@@ -112,6 +112,22 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
 				<version>2.2.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>com.m2mci.mqttKafkaBridge.Bridge</mainClass>
+							<classpathPrefix>dependency-jars/</classpathPrefix>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+						</manifest>
+					</archive>
+				</configuration>
 			</plugin>
 			<!-- Code coverage plugin -->
 			<plugin>
